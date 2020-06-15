@@ -5,7 +5,10 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
+static char *font = "FiraMono Nerd Font:style=Regular:size=10";
+// TODO: apply font2 patch
+// static char *font2[] = { "JoyPixels:pixelsize=10:antialias=true:autohint=true" };
+
 static int borderpx = 2;
 
 /*
@@ -86,31 +89,33 @@ unsigned int tabspaces = 8;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-	/* 8 normal colors */
-	"black",
-	"red3",
-	"green3",
-	"yellow3",
-	"blue2",
-	"magenta3",
-	"cyan3",
-	"gray90",
 
-	/* 8 bright colors */
-	"gray50",
-	"red",
-	"green",
-	"yellow",
-	"#5c5cff",
-	"magenta",
-	"cyan",
-	"white",
+  /* 8 normal colors */
+  "#282828", /* black   */
+  "#cc241d", /* red     */
+  "#98971a", /* green   */
+  "#d79921", /* yellow  */
+  "#458588", /* blue    */
+  "#b16286", /* magenta */
+  "#689d6a", /* cyan    */
+  "#a89984", /* white   */
 
-	[255] = 0,
+  /* 8 bright colors */
+  "#928374", /* black   */
+  "#fb4934", /* red     */
+  "#b8bb26", /* green   */
+  "#fabd2f", /* yellow  */
+  "#83a598", /* blue    */
+  "#d3869b", /* magenta */
+  "#8ec07c", /* cyan    */
+  "#ebdbb2", /* white   */
 
-	/* more colors can be added after 255 to use with DefaultXX */
-	"#cccccc",
-	"#555555",
+  /* special colors */
+  [256] = "#1d2021", /* background */
+  [257] = "#ebdbb2", /* foreground */
+
+  /* selection color */
+  [258] = "#504945" /* background 2 */
 };
 
 
@@ -118,10 +123,15 @@ static const char *colorname[] = {
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 7;
-unsigned int defaultbg = 0;
-static unsigned int defaultcs = 256;
+unsigned int defaultfg = 257;
+unsigned int defaultbg = 256;
+static unsigned int defaultcs = 257;
 static unsigned int defaultrcs = 257;
+
+// TODO: apply selection colors patch
+// unsigned int selectionbg = 258;
+// unsigned int selectionfg = 7;
+// static int ignoreselfg = 1;
 
 /*
  * Default shape of cursor
@@ -142,7 +152,7 @@ static unsigned int rows = 24;
 /*
  * Default colour and shape of the mouse cursor
  */
-static unsigned int mouseshape = XC_xterm;
+static unsigned int mouseshape = XC_left_ptr;
 static unsigned int mousefg = 7;
 static unsigned int mousebg = 0;
 
