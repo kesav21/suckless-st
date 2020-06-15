@@ -6,8 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 static char *font = "FiraCode Nerd Font:style=Regular:size=10:antialias=true";
-// TODO: apply font2 patch
-// static char *font2[] = { "JoyPixels:pixelsize=10:antialias=true:autohint=true" };
+static char *font2[] = { "JoyPixels:pixelsize=10:antialias=true:autohint=true" };
 
 static int borderpx = 2;
 
